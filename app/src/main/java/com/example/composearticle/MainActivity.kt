@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composearticle.ui.theme.ComposeArticleTheme
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -57,17 +58,19 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun DisplayImage(title: String, first: String, second: String, modifier: Modifier = Modifier) {
     val bannerImage = painterResource(R.drawable.bg_compose_background)
-    Image(
-        painter = bannerImage,
-        contentDescription = null,
-        contentScale = ContentScale.Fit,
-        alignment = Alignment.TopCenter
-    )
-    Text(
-        title = title,
-        first = first,
-        second = second
-    )
+    Column {
+        Image(
+            painter = bannerImage,
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            alignment = Alignment.TopCenter
+        )
+        Text(
+            title = title,
+            first = first,
+            second = second
+        )
+    }
 }
 
 @Composable
@@ -81,10 +84,14 @@ fun Text(title: String, first: String, second: String, modifier: Modifier = Modi
             modifier = Modifier.padding(16.dp)
         )
         Text(
-            text = first
+            text = first,
+            modifier = Modifier.padding(16.dp),
+            textAlign = TextAlign.Justify
         )
         Text(
-            text = second
+            text = second,
+            modifier = Modifier.padding(16.dp),
+            textAlign = TextAlign.Justify
         )
     }
 }
@@ -94,6 +101,6 @@ fun Text(title: String, first: String, second: String, modifier: Modifier = Modi
 fun GreetingPreview() {
     ComposeArticleTheme {
         //Greeting("Android")
-        DisplayImage()
+        //DisplayImage()
     }
 }
