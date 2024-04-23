@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -18,6 +19,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composearticle.ui.theme.ComposeArticleTheme
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,7 +76,15 @@ fun Text(title: String, first: String, second: String, modifier: Modifier = Modi
 
     ) {
         Text(
-            text = title
+            text = title,
+            fontSize = 24.sp,
+            modifier = Modifier.padding(16.dp)
+        )
+        Text(
+            text = first
+        )
+        Text(
+            text = second
         )
     }
 }
